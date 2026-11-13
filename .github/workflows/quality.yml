@@ -1,4 +1,4 @@
-name: C build check
+name: C quality checks
 
 on:
   push:
@@ -12,10 +12,22 @@ permissions:
 
 jobs:
   compile:
+    name: Compile with GCC
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install GCC
-        run: sudo apt-get update && sudo apt-get install -y gcc
-      - name: Compile editor
-        run: gcc -std=c11 -Wall -Wextra "TEXT EDITOR/main.c" -o /tmp/text-editor
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes gcc
+
+      - name: Compile with warnings
+        run: |
+          mkdir -p build
+          gcc --version
+          gcc -std=c11 -Wall -Wextra -pedantic "TEXT EDITOR/main.c" -o build/text-editor
+
+      - name: Confirm executable was produced
+        run: test -x build/text-editor

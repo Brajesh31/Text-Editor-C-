@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the documentation
+    url: https://github.com/Brajesh31/Text-Editor-C-/blob/main/README.md
+    about: Check setup, command syntax, known limitations, and troubleshooting before opening an issue.
+  - name: Security report
+    url: https://github.com/Brajesh31/Text-Editor-C-/security/advisories/new
+    about: Report a vulnerability privately. Do not publish exploit details in a public issue.

@@ -1,19 +1,51 @@
 name: Bug report
-description: Report a reproducible editor defect.
+description: Report a reproducible defect in the C text editor.
 title: "[Bug]: "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search existing issues first. Do not include passwords, private information, or exploit details.
   - type: textarea
     id: summary
     attributes:
-      label: What happened?
+      label: Problem summary
+      description: Explain the defect and its impact.
+      placeholder: A short, precise description.
+    validations:
+      required: true
+  - type: input
+    id: operating_system
+    attributes:
+      label: Operating system
+      placeholder: Ubuntu 24.04, Windows 11, macOS version
+    validations:
+      required: true
+  - type: input
+    id: compiler
+    attributes:
+      label: Compiler and version
+      placeholder: GCC 14.2, Clang 18, MinGW-w64
     validations:
       required: true
   - type: textarea
-    id: input
+    id: build
     attributes:
-      label: Input or command sequence
-      description: Provide a minimal reproducible sequence.
+      label: Build command and output
+      description: Paste the exact command and relevant compiler output.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: List the exact text and commands entered, in order.
+      placeholder: |
+        1. Start the editor.
+        2. Enter ...
+        3. Run ...
     validations:
       required: true
   - type: textarea
@@ -28,3 +60,10 @@ body:
       label: Actual behavior
     validations:
       required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Additional diagnostics
+      description: Include relevant sanitizer output, screenshots, or logs. Remove private data.
+    validations:
+      required: false

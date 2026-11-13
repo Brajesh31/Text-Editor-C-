@@ -1,17 +1,37 @@
 name: Feature request
-description: Suggest an editor improvement.
+description: Propose a specific improvement to the editor.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
-  - type: textarea
-    id: use_case
+  - type: markdown
     attributes:
-      label: Use case
+      value: |
+        Check the README and roadmap first. Explain the user problem rather than only naming a feature.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or user need
+      description: What limitation are you trying to solve?
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed change
+      label: Proposed behavior
+      description: Describe the expected user experience and command syntax, if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches could solve the same problem?
+    validations:
+      required: false
+  - type: textarea
+    id: impact
+    attributes:
+      label: Compatibility, safety, and testing impact
+      description: Consider buffer limits, history, memory safety, terminal behavior, and tests.
     validations:
       required: true
